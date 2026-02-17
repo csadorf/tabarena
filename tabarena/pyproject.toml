@@ -34,7 +34,7 @@ dependencies = [
   "plotly>=6.3.0",
   # TODO: support such that it does not create 1000s of cache files in home dir
   #     - Otherwise, uninstall.
-  "kaleido>=0.2.1,<1",  # for winrate matrix
+  "kaleido>=0.2.1,<1,!=0.2.1.post1",  # for winrate matrix; 0.2.1.post1 has no x86_64 wheel
 ]
 
 [project.optional-dependencies]

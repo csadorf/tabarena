@@ -18,7 +18,7 @@ dependencies = [
     "seaborn==0.13.2",
     "matplotlib==3.10.1",
     "plotly>=6.3.0",
-    "kaleido>=0.2.1,<1",  # for winrate matrix
+    "kaleido>=0.2.1,<1,!=0.2.1.post1",  # for winrate matrix; 0.2.1.post1 has no x86_64 wheel
 ]
 
 [tool.setuptools.packages.find]

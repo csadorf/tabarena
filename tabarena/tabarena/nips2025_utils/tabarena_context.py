@@ -69,8 +69,15 @@ class TabArenaContext:
         extra_methods: list[MethodMetadata] = None,
         include_unverified: bool = False,
         backend: Literal["ray", "native"] = "ray",
+        task_metadata: pd.DataFrame | None = None,
+        task_metadata_path: str | None = None,
     ):
-        self.task_metadata = load_task_metadata(paper=True)  # FIXME: Instead download?
+        if task_metadata is not None:
+            self.task_metadata = task_metadata
+        elif task_metadata_path is not None:
+            self.task_metadata = load_task_metadata(paper=True, path=task_metadata_path)
+        else:
+            self.task_metadata = load_task_metadata(paper=True)  # FIXME: Instead download?
         assert backend in ["ray", "native"]
         self.backend = backend
         self.engine = "ray" if self.backend == "ray" else "sequential"
